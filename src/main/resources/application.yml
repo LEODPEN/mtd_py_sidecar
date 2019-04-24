@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: py
+server:
+  port: 8130
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+# ????
+ribbon:
+#  eureka:
+#    enabled: false
+  ConnectTimeout: 10000
+  ReadTimeOut: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+
+
+#监听python
+sidecar:
+  port: 5000
+  health-uri: http://localhost:${sidecar.port}/health
