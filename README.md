@@ -11,6 +11,17 @@ to expose the interfaces of python.
 
 + 启动py采用的是命令行（flask）python app.py runserver -h xxx.xxx.xxx.xxx -p 5000
 
+### 获得使用版：
+```
+部署版，需要配合eureka：
+  docker pull leodpen/pyclient:latest
+  
+本地测试python端（no jvm语言）版：
+  docker pull leodpen/pyclient:local
+
+docker run -p 8130:8130 -d leodpen/pyclient:{tag}
+```
+
  
 
 
