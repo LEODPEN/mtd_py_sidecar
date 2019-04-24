@@ -8,7 +8,9 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defaultZone: http://eureka1:8761/eureka/,http://eureka2:8762/eureka/
+#        以下是我用手机热点部署，注意docker内的内网ip每个都不同，需要 cat /etc/hosts
+#      http://192.168.43.38:8761/eureka/,http://192.168.43.38:8762/eureka/
 # ????
 ribbon:
 #  eureka:
@@ -29,3 +31,4 @@ hystrix:
 sidecar:
   port: 5000
   health-uri: http://localhost:${sidecar.port}/health
+#  http://192.168.43.38:${sidecar.port}/health
